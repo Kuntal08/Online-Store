@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+  <form class="container box" action="" method="post">
+    <h3>Orders</h3>
+    <textarea name="order_field" placeholder="Enter order here(E.g: Milk-500ml,etc.)" rows="5" cols="50" required></textarea>
+    <input class= "button" type="submit" name="submit_button" value="Proceed">
+    <p>----------OR----------</p>
+    <a class="button" href="/upload">Upload Image of Order</a>
+  </form>
+
+{% endblock %}

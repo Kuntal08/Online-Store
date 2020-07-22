@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block body %}
+<form class="container box" action="" method="post">
+  <h3>Orders</h3>
+  <input type="text" name="name_field" placeholder="Name" required>
+  <input type="number" name="phone_field" placeholder="Phone No." required>
+  <input type="text" name="address_field" placeholder="Address" required> 
+  <input class= "button" type="submit" name="submit_button" value="Place Order">
+</form>
+{% endblock %}
