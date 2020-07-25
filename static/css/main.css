@@ -2,14 +2,15 @@
   margin: 0;
   padding: 0;
 }
-header {
-    padding-top: 8px;
+.head {
+    overflow: hidden;
     background: #FF9933;
     height: 6em;
-    text-align: center;
+    display: flex;
 }
-header img {
-  width: 35%;
+.head img {
+  width: 55%;
+  height: 6em;
 }
 body{
   background: url(background_img/background3.jpg);
@@ -17,14 +18,87 @@ body{
   background-blend-mode: luminosity;
 }
 
-.header h3{
+/*navbar*/
+.location{
+  width: 30%;
+  text-align: center;
+}
+.location-btn {
+    text-align: center;
+    margin-top: 30px;
+    margin-right: 5px;
+}
+.location-btn button{
+  background: none;
+  border: none;
+}
+.location-btn button:hover{
+  background: #FFCC33;
+  border: none;
+}
+.dropbtn {
+  background-color: #FFCC33;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  height: 84px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  float: right;
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #F4511E;}
+/*end*/
+
+.search-field h3{
   margin: 0;
   color: slategrey;
 }
-.header{
+.search-field{
   background: #ffe6cc;
-  padding: 7px 0px;
-  text-align: center;
+  padding: 7px 5px;
+  text-align: right;
+}
+.search-field input[type= "text"]{
+  border:none;
+  border-radius: 5px;
+  width: 60%;
+}
+.search-field input[type= "submit"]{
+  border:none;
+  border-radius: 5px;
+  width: 20%;
+}
+.search-field input[type= "text"]:hover{
+  border:none;
 }
 .containers {
     padding: 10px 10px;
@@ -34,7 +108,7 @@ body{
 /* Input field sections */
 .box{
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%,-50%);
     background: white;
@@ -47,7 +121,7 @@ body{
     font-weight: 500;
     font-size: xx-large;
 }
-.box textarea, .box input[type= "text"], .box input[type= "number"]{
+.box textarea, .box input[type= "text"], .box input[type= "number"],.box input[type= "file"]{
     background: #f2f2f2;
     display: block;
     margin: 9px auto;
@@ -58,7 +132,7 @@ body{
     outline: none;
     border-radius: 12px;
 }
-.box textarea:hover, .box input[type= "text"]:hover, .box input[type= "number"]:hover{
+.box textarea:hover, .box input[type= "text"]:hover, .box input[type= "number"]:hover, .box input[type= "file"]:hover{
     border-color: #2ecc71;
     width: 80%;
 }
@@ -133,36 +207,77 @@ body{
   top: 60%;
   left: 0;
   right: 0;
-	box-shadow: 0 3px 0 0 #ff9933	;
+	box-shadow: 0 3px 0 0 #ff9933;
 	font-size: 22px;
 }
-
 .upload_button:hover {
 	background: #ff9933;
 	box-shadow: 0 3px 0 0 #ffcc33;
 }
+.image_section {
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 5px;
+}
+.image_section p {
+    color: #595959;
+}
+.details {
+    background: #f2f2f2;
+    width: 80%;
+    margin: auto;
+    height: 4em;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.detail-head {
+    display: flex;
+    justify-content: center;
+}
+.details h5 {
+    margin: 5px;
+}
+
 @media (min-width: 490px) {
-  header{
+  .head{
     height: 7em;
   }
-  header img{
-    width: 25%;
+  .head img{
+    width: 35%;
+    height: 7em;
+  }
+  .dropbtn{
+    height: 98px;
   }
 }
 @media (min-width: 768px) {
+  .box{
+    top: 50%;
+  }
   .item{
     height: 32em;
   }
   .item img{
     height: 32em;
   }
-  header img{
-    width: 20%;
+  .head img{
+    width: 26%;
   }
-  .box textarea, .box input[type= "text"], .box input[type= "number"]{
+  .dropbtn{
+    padding: 20px;
+  }
+  .search-field input[type= "text"]{
+    width: 40%;
+  }
+  .search-field input[type= "submit"]{
+    width: 10%;
+  }
+  .box textarea, .box input[type= "text"], .box input[type= "number"],.box input[type= "file"]{
     width: 65%;
   }
-  .box textarea:hover, .box input[type= "text"]:hover, .box input[type= "number"]:hover{
+  .box textarea:hover, .box input[type= "text"]:hover, .box input[type= "number"]:hover, .box input[type= "file"]:hover{
     width: 65%;
   }
   .button{
@@ -171,27 +286,49 @@ body{
   #backup_icon {
     font-size: 100px;
   }
-
   .upload_button{
       font-size: 30px;
   }
   .dropzone p{
       font-size: 30px;
   }
+  .location-btn {
+      margin-top: 32px;
+      margin-right: 0;
+  }
+
 }
 @media (min-width: 992px) {
-  header{
+  .box{
+    top: 60%;
+  }
+  .head{
     height: 9em;
   }
-  header img{
-    width: 20%;
+  .head img{
+    width: 22%;
+    height: 9em;
+  }
+  .dropbtn{
+    height: 125px;
+    padding: 30px;
+  }
+  .location-btn {
+    margin-top: 34px;
   }
 }
 @media (min-width: 1200px) {
-  header{
+  .head{
     height: 8em;
   }
-  header img{
-    width: 15%;
+  .head img{
+    width: 17%;
+    height: 8em;
+  }
+  .dropbtn{
+    height: 7em;
+  }
+  .location-btn {
+    margin-top: 38px;
   }
 }

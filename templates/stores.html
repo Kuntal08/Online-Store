@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+  <form class="container box" action="" method="post">
+    <h3>Orders</h3>
+    <input type="text" name="shop_name_field" placeholder="Enter Shop Name" required>
+    <input type="number" name="shop_phone_field" placeholder="Phone No." required>
+    <input type="text" name="shop_address_field" placeholder="Enter Shop Address" required>
+    <div class="image_section">
+      <p>Upload Shop Owner Image</p>
+      <input type="file" name="owner_image" placeholder="Shop Owner Image" required>
+    </div>
+    <div class="image_section">
+      <p>Upload Shop Image</p>
+      <input type="file" name="store_image" required>
+    </div>
+    <input class= "button" type="submit" name="submit_button" value="Create Store">
+  </form>
+{% endblock %}

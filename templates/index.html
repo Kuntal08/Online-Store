@@ -1,43 +1,40 @@
 {% extends 'base.html' %}
 {% block body %}
-  <div class="header">
-    <h3>Welcome To Palakkad's Local Online Store</h3>
+  <div class="search-field">
+    <form action="{{url_for('index')}}" method="POST" enctype="multipart/form-data">
+      <input type="text" name="search_field" placeholder=" Search by your order id...">
+      <input type="submit" name="submit_button" value="Search">
+    </form>
   </div>
-
   <div class="containers">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+        {% for i in range(1, count)%}
+        <li data-target="#myCarousel" data-slide-to="{{i}}"></li>
+        {%endfor%}
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-        <div class="item active">
-          <a href="/order"><img src="{{ url_for('static', filename='images/11.jpg')}}" alt="Shop1" style="width:100%;"></a>
-          <div class="carousel-caption">
-            <h3>Shop Name</h3>
-            <p>Shop Address</p>
+          <div class="item active">
+            <a href="/order"><img src="/static/store_img/{{files[0]}}" alt="Shop1" style="width:100%;"></a>
+            <div class="carousel-caption">
+              <h3>Shop Name</h3>
+              <p>Shop Address</p>
+            </div>
           </div>
-        </div>
 
+        {% for f in range(1,count) %}
         <div class="item">
-          <a href="/order"><img src="{{ url_for('static', filename='images/22.jpg')}}" alt="Shop2" style="width:100%;"></a>
+          <a href="/order"><img src="/static/store_img/{{files[f]}}" alt="Shop1" style="width:100%;"></a>
           <div class="carousel-caption">
             <h3>Shop Name</h3>
             <p>Shop Address</p>
           </div>
         </div>
-
-        <div class="item">
-          <a href="/order"><img src="{{ url_for('static', filename='images/33.jpg')}}" alt="Shop3" style="width:100%;"></a>
-          <div class="carousel-caption">
-            <h3>Shop Name</h3>
-            <p>Shop Address</p>
-          </div>
-        </div>
+        {%endfor%}
       </div>
 
       <!-- Left and right controls -->
@@ -51,4 +48,5 @@
       </a>
     </div>
   </div>
+
 {% endblock %}
