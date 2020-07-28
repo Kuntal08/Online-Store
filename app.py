@@ -11,10 +11,6 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 def index():
     files = os.listdir('./static/store_img')
     count = len(files)
-    if request.method == "POST":
-        global location
-        location = request.form.get("location")
-        return render_template('base.html', location=location)
     return render_template('index.html', files=files, count=count)
 
 @app.route('/order', methods=["GET", "POST"])
@@ -53,6 +49,31 @@ def details():
 
 @app.route("/stores", methods=["GET","POST"])
 def stores():
+    target1 = os.path.join(APP_ROOT,'static/store_img/')
+    target2 = os.path.join(APP_ROOT,'static/owner_img/')
+
+    if not os.path.isdir(target1):
+        os.mkdir(target1)
+    if not os.path.isdir(target2):
+        os.mkdir(target2)
+
+    for file1 in request.files.getlist("store_image"):
+        for file2 in request.files.getlist("owner_image"):
+            print(file1)
+            print(file2)
+            filename1 = file1.filename
+            filename2 = file2.filename
+            if filename1 and filename2 :
+                destination1 = "/".join([target1, filename1])
+                destination2 = "/".join([target2, filename2])
+                file1.save(destination1)
+                file2.save(destination2)
+                flash("File Uploaded", "success")
+                return redirect(url_for('index'))
+            else:
+                flash("Please attach a file","danger")
+                return redirect(url_for('stores'))
+
     return render_template('stores.html')
 
 @app.route("/about_us")

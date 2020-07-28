@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
-  <form class="container box" action="" method="post">
+  <form class="container box" action="{{url_for('stores')}}" method="POST" enctype="multipart/form-data">
     <h3>Orders</h3>
     <input type="text" name="shop_name_field" placeholder="Enter Shop Name" required>
     <input type="number" name="shop_phone_field" placeholder="Phone No." required>
