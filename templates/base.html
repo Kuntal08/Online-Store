@@ -11,62 +11,32 @@
     <title>Palakkad Online Store</title>
   </head>
   <body>
+    <div id="demo" class="collapse">
+      <input type="text" name="location" placeholder=" Enter your current location" id="myInput">
+      <input type="submit" onclick="getInputValue()" name="submit_button" value="Change Location">
+      <span class="material-icons" data-toggle="collapse" data-target="#demo">arrow_drop_up</span>
+    </div>
     <div class="head">
       <div class="logo">
-          <a href="/"><img src="{{ url_for('static', filename='header_img/header2.png')}}" alt="Palakkad, പാലക്കാട് "></a>
+        <a href="/"><img src="{{ url_for('static', filename='header_img/header1.png')}}" alt="Palakkad, പാലക്കാട് "></a>
       </div>
-
-<!--      <div class="location">
-        <div class="location-btn">
-          <button onclick="getLocation()"><span class="material-icons">gps_fixed</span></button>
-        </div>
-        <div class="location-details">
-          <p id="demo"></p>
-        </div>
+      <div class="location" data-toggle="collapse" data-target="#demo">
+        <p id="location_demo"></p>
         <script>
-        var x = document.getElementById("demo");
-
-        function getLocation() {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition, showError);
-          } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
+          function getInputValue(){
+              var inputVal = document.getElementById("myInput").value;
+              document.getElementById("location_demo").innerHTML = inputVal;
           }
-        }
-
-        function showPosition(position) {
-          x.innerHTML = position.coords.latitude.toFixed(2) +
-          "," + position.coords.longitude.toFixed(2);
-        }
-
-        function showError(error) {
-          switch(error.code) {
-            case error.PERMISSION_DENIED:
-              x.innerHTML = "User denied the request for Geolocation."
-              break;
-            case error.POSITION_UNAVAILABLE:
-              x.innerHTML = "Location information is unavailable."
-              break;
-            case error.TIMEOUT:
-              x.innerHTML = "The request to get user location timed out."
-              break;
-            case error.UNKNOWN_ERROR:
-              x.innerHTML = "An unknown error occurred."
-              break;
-          }
-        }
-        </script>
-      </div> --> <!--Uncomment to avail GEOPOSITION Feature-->
-
-      <div class="dropdown">
-        <button class="dropbtn">Options</button>
-        <div class="dropdown-content">
-          <a href="/">Home</a>
-          <a href="/stores">Store On Board</a>
-          <a href="/contact_us">Contact Us</a>
-          <a href="/about_us">About Us</a>
-        </div>
+      </script>
+        <span class="material-icons">location_on</span>
       </div>
+    </div>
+    <div class="nav-field">
+      <div class="nav-items"><a href="/"><p>Home</p><span class="material-icons">home</span></a></div>
+      <div class="nav-items"><a href="/stores"><p>Store On Board</p><span class="material-icons">store</span></a></div>
+      <div class="nav-items"><a href="/contact_us"><p>Contact Us</p><span class="material-icons">contact_support</span></a></div>
+      <div class="nav-items"><a href="/about_us"><p>About Us</p><span class="material-icons">supervisor_account</span></a></div>
+      <div class="nav-items"><a href="/search_result"><p>Search</p><span class="material-icons">search</span></a></div>
     </div>
     {% include "includes/_message.html" %}
     {% block body %}{% endblock %}

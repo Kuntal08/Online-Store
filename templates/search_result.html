@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block body %}
+  <form class="box" action="{{url_for('search_result')}}" method="POST" enctype="multipart/form-data">
+    <input type="text" name="search_field" placeholder=" Search by your order id...">
+    <input type="submit" name="submit_button" value="Search">
+  </form>
   <div class="container box">
     <h3>Seacrh Result</h3>
     <div class="details">

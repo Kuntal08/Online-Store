@@ -6,12 +6,15 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '1234567ONLINESTORE'
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+
 @app.route('/', methods=["GET","POST"])
 def index():
     files = os.listdir('./static/store_img')
     count = len(files)
     if request.method == "POST":
-        return redirect(url_for('search_result'))
+        global location
+        location = request.form.get("location")
+        return render_template('base.html', location=location)
     return render_template('index.html', files=files, count=count)
 
 @app.route('/order', methods=["GET", "POST"])
@@ -60,8 +63,10 @@ def about_us():
 def contact_us():
     return render_template('contact_us.html')
 
-@app.route("/search_result")
+@app.route("/search_result", methods=["GET","POST"])
 def search_result():
+    if request.method == "POST":
+        return redirect(url_for('search_result'))
     return render_template('search_result.html')
 
 

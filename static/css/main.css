@@ -3,14 +3,46 @@
   padding: 0;
 }
 .head {
-    overflow: hidden;
-    background: #FF9933;
-    height: 6em;
-    display: flex;
+  background: #e6e6e6;
+  opacity: 0.9;
+  padding-left: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 .head img {
-  width: 55%;
-  height: 6em;
+  width: 40%;
+}
+.logo {
+    width: 60%;
+}
+.location {
+  display: flex;
+  margin: auto;
+  margin-right: 10px;
+}
+#demo input[type="text"] {
+    border: none;
+    border-radius: 20px;
+    padding: 2px 3px;
+    width: 40%;
+}
+#demo input[type="submit"] {
+    border:none;
+    border-radius: 2px;
+    padding: 2px 3px;
+}
+#demo {
+    background: #262626;
+    opacity: 0.8;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+#demo .material-icons {
+    float: right;
+    color: #f2f2f2;
+}
+.material-icons{
+  cursor:pointer;
 }
 body{
   background: url(background_img/background3.jpg);
@@ -19,23 +51,6 @@ body{
 }
 
 /*navbar*/
-.location{
-  width: 30%;
-  text-align: center;
-}
-.location-btn {
-    text-align: center;
-    margin-top: 30px;
-    margin-right: 5px;
-}
-.location-btn button{
-  background: none;
-  border: none;
-}
-.location-btn button:hover{
-  background: #FFCC33;
-  border: none;
-}
 .dropbtn {
   background-color: #FFCC33;
   color: white;
@@ -78,43 +93,72 @@ body{
 .dropdown:hover .dropbtn {background-color: #F4511E;}
 /*end*/
 
-.search-field h3{
-  margin: 0;
-  color: slategrey;
+.nav-field{
+  background: #262626;
+  opacity: 0.8;
+  display: flex;
+  justify-content: space-between;
 }
-.search-field{
-  background: #ffe6cc;
-  padding: 7px 5px;
-  text-align: right;
+.nav-items{
+  padding: 10px 20px;
 }
-.search-field input[type= "text"]{
-  border:none;
-  border-radius: 5px;
-  width: 60%;
+.nav-items p{
+    color: white;
+    display: none;
+    margin: 0
 }
-.search-field input[type= "submit"]{
-  border:none;
-  border-radius: 5px;
-  width: 20%;
+.nav-items .material-icons {
+    color: white;
 }
-.search-field input[type= "text"]:hover{
-  border:none;
+.nav-items:hover{
+  background: #d9d9d9;
+  color: #262626;
 }
+.nav-items a:hover{
+  text-decoration: none;
+  color: #262626;
+}
+.nav-items p:hover{
+  text-decoration: none;
+  color: #262626;
+}
+.nav-items .material-icons:hover {
+    color: #262626;
+}
+
 .containers {
     padding: 10px 10px;
     background: #D9D9D9;
 }
+form.box{
+  padding-top: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+form.box input[type="submit"]{
+  height: 10%;
+  background: #ffcc33;
+  color: #fff;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 3px 0 0 #ff9933;
+	font-size: 22px;
+  padding: 0px 10px;
+  margin-bottom: 10px;
+}
+form.box input[type="submit"]:hover{
+  background: #ff9933;
+  box-shadow: 0 3px 0 0 #ffcc33;
+}
 
 /* Input field sections */
 .box{
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    margin: auto;
     background: white;
     text-align: center;
     box-shadow: 10px 10px 5px grey;
-    width: 23em;
+    width: 80%;
+    margin-top: 25px;
 }
 .box h3{
     color: black;
@@ -228,8 +272,7 @@ body{
     background: #f2f2f2;
     width: 80%;
     margin: auto;
-    height: 4em;
-    padding: 5px;
+    padding: 10px;
     margin-bottom: 10px;
 }
 .detail-head {
@@ -241,18 +284,26 @@ body{
 }
 
 @media (min-width: 490px) {
-  .head{
-    height: 7em;
-  }
   .head img{
-    width: 35%;
-    height: 7em;
+    width: 30%;
   }
   .dropbtn{
     height: 98px;
   }
 }
 @media (min-width: 768px) {
+  .nav-items p{
+    display: block;
+  }
+  .nav-items p:hover{
+    text-decoration: none;
+  }
+  .nav-items .material-icons {
+      display: none;
+  }
+  .nav-field{
+    justify-content: flex-start;
+  }
   .box{
     top: 50%;
   }
@@ -263,16 +314,10 @@ body{
     height: 32em;
   }
   .head img{
-    width: 26%;
+    width: 20%;
   }
   .dropbtn{
     padding: 20px;
-  }
-  .search-field input[type= "text"]{
-    width: 40%;
-  }
-  .search-field input[type= "submit"]{
-    width: 10%;
   }
   .box textarea, .box input[type= "text"], .box input[type= "number"],.box input[type= "file"]{
     width: 65%;
@@ -302,12 +347,9 @@ body{
   .box{
     top: 60%;
   }
-  .head{
-    height: 9em;
-  }
+
   .head img{
-    width: 22%;
-    height: 9em;
+    width: 15%;
   }
   .dropbtn{
     height: 125px;
@@ -318,13 +360,6 @@ body{
   }
 }
 @media (min-width: 1200px) {
-  .head{
-    height: 8em;
-  }
-  .head img{
-    width: 17%;
-    height: 8em;
-  }
   .dropbtn{
     height: 7em;
   }
